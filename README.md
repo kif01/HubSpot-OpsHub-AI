@@ -5,7 +5,7 @@ A small use case to show the “Art of the Possible” when it comes to extendin
 
 Imagine there is a support representative handling an open ticket where he is communicating back and forth with the customer through emails and this ticket needs to be escalated to the product team / developers. Instead of having the product team read through the entire emails to understand what the issue is, we can automate the process with Operations Hub plus an AI service that can summarize the text. The end goal here is to have a summarized text of this conversation in which we can fill it into a custom property that we create on the Ticket Object (like “Summary” field), and then we can send this summary to any tool that the product team is using to see the issues.
 
-### Result
+### Outcome
 <img width="1440" alt="Screenshot 2022-03-21 at 22 11 06" src="https://user-images.githubusercontent.com/15332386/159379126-e644d505-7a1f-4f97-9346-fabada7d204b.png">
 
 ## High Level Flow

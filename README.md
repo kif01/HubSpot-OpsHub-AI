@@ -33,15 +33,15 @@ def main(event):
 
   hubspot = HubSpot(api_key=os.getenv('HAPIKEY'))
 
-  phone = ''
   try:
     ApiResponse = hubspot.crm.tickets.associations_api.get_all(ticket_id=event.get('inputFields').get('hs_ticket_id'), to_object_type="email")
     result = ApiResponse.results
+    
+    #getting the id of the last email (last email containts the backtrails of the previous email)
     size = len(result)
-    #print(size)
     email= result[size-1]
-    email_id = email.id
-    #print(email_id)
+    email_id = email.id 
+   
     
   except ApiException as e:
    print(e)
@@ -61,14 +61,13 @@ def main(event):
   print("BEFORE SUMMARY")
   print(result["properties"]["hs_email_text"])
   
+  # Formatting the text content of email
   str1 = result["properties"]["hs_email_text"].replace('\n','')
   str2 = str1.replace('>',' ')
   str3  = re.sub('\S*@\S*\s?', '', str2)
   final_str = str3.replace('.','\n')
-  #print (final_str)
-	
   
-  
+  # Sending text content to the AI service
   deepai_result = requests.post(
     "https://api.deepai.org/api/summarization",
     data={
@@ -79,20 +78,6 @@ def main(event):
   print("AFTER SUMMARY")
   print(summary_text)
     
- 
-
-  # How to use inputs
-  # Inputs are a way for you to take data from any actions in your workflow and use it in your code instead of having to call the HubSpot API to get that same data.
-  # Each input needs to be defined like the example below
-
-  #email = event.get('inputFields').get('email')
-
-
-  # How to use outputs
-  # Outputs are a way for you to take data from your code and use it in later workflows actions
-
-  # Use the callback function to return data that can be used in later actions.
-  # Data won't be returned until after the event loop is empty, so any code after this will still execute.
 
   return {
    "outputFields": {

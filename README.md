@@ -17,7 +17,8 @@ Imagine there is a support representative handling an open ticket where he is co
 
 ## Worklow Code
 
-```import os
+```python
+import os
 import json
 from hubspot import HubSpot
 import requests
@@ -97,4 +98,5 @@ def main(event):
    "outputFields": {
       "result": summary_text 
     }
-  }```
+  }
+```

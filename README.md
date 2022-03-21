@@ -74,7 +74,7 @@ def main(event):
     data={
         'text': final_str,
     },
-    headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'})
+    headers={'api-key': '<DeepAI apikey>'})
   summary_text = deepai_result.json()['output']
   print("AFTER SUMMARY")
   print(summary_text)

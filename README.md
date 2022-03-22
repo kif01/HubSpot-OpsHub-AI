@@ -16,7 +16,7 @@ Imagine there is a support representative handling an open ticket where he is co
 
 <img width="1243" alt="Screenshot 2022-03-21 at 22 24 32" src="https://user-images.githubusercontent.com/15332386/159379288-a1742c5d-f774-40a9-bac4-2936baadcab9.png">
 
-## Worklow Code
+## Workflow Code
 
 ```python
 import os
